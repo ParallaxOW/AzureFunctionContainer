@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azfunc
+spec:
+  selector:
+    matchLabels:
+      app: azfunc
+  template:
+    metadata:
+      labels:
+        app: azfunc
+    spec:
+      containers:
+      - name: azfunc
+        image: rlangel/azfuncimage:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
